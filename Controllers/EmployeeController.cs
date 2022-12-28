@@ -9,8 +9,8 @@ namespace SimpleEmployeeApp.Controllers
     {
         private EmployeeContext context;
 
-        // public EmployeeController(EmployeeContext ctx) => context = ctx;
         public EmployeeController(EmployeeContext context) => this.context = context;
+        
         public IActionResult Index()
         {
             IQueryable<Employee> query = context.Employees.OrderBy(m => m.Id);

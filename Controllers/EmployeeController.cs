@@ -36,10 +36,8 @@ namespace SimpleEmployeeApp.Controllers
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }
-            else
-            {
-                return View();
-            }
+
+            return View();
         }
 
         [HttpGet]

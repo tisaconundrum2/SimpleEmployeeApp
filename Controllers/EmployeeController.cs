@@ -10,7 +10,7 @@ namespace SimpleEmployeeApp.Controllers
         private EmployeeContext context;
 
         public EmployeeController(EmployeeContext context) => this.context = context;
-        
+
         public IActionResult Index()
         {
             IQueryable<Employee> query = context.Employees.OrderBy(m => m.Id);
@@ -40,6 +40,18 @@ namespace SimpleEmployeeApp.Controllers
             {
                 return View();
             }
+        }
+
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            var entity = context.Employees.Find(Id);
+            if (entity != null)
+            {
+                context.Employees.Remove(entity);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Index");
         }
     }
 }

@@ -28,8 +28,9 @@
                     <td>@emp.middleInitial</td>
                     <td>@emp.lastName</td>
                     <td>@emp.address</td>
-                    <td>@emp.dateOfBirth</td>
+                    <td>@emp.dateOfBirth.ToString("MM-dd-yyyy")</td>
                     <td>@emp.socialSecurityNumber</td>
+                    <td><a asp-controller="Employee" asp-action="Delete" asp-route-id="@emp.Id" class="btn btn-danger">Delete</a></td>
                 </tr>
             }
         </tbody>

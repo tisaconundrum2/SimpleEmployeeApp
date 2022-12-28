@@ -1,0 +1,52 @@
+@model SimpleEmployeeApp.Models.DTOs.EmployeeDTO
+@{
+    ViewData["Title"] = "Edit Employee";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div asp-validation-summary="All" class="text-danger"></div>
+<!--
+    firstName
+    middleInitial
+    lastName
+    address
+    dateOfBirth
+    socialSecurityNumber
+-->
+<div class="container">
+    <form asp-action="Edit" method="post">
+        <div class="form-group">
+            <label asp-for="firstName">First Name:</label>
+            <input type="text" asp-for="firstName" class="form-control" placeholder="@Model.firstName" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="middleInitial">Middle Initial:</label>
+            <input type="text" asp-for="middleInitial" class="form-control" placeholder="@Model.middleInitial" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="lastName">Last Name:</label>
+            <input type="text" asp-for="lastName" class="form-control" placeholder="@Model.lastName" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="address">Address:</label>
+            <input type="text" asp-for="address" class="form-control" placeholder="@Model.address" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="dateOfBirth">Date Of Birth:</label>
+            <input type="text" asp-for="dateOfBirth" class="form-control" placeholder="@Model.dateOfBirth" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="socialSecurityNumber">Social Security Number:</label>
+            <input type="text" asp-for="socialSecurityNumber" class="form-control" placeholder="@Model.socialSecurityNumber" />
+        </div>
+
+        <br />
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a asp-action="Index" class="btn btn-danger">Cancel</a>
+    </form>
+</div>

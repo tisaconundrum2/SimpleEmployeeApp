@@ -7,7 +7,7 @@
 <!-- Bootstrap Container, table of Employees -->
 
 <div class="container">
-    <table id="table_id" class="table display">
+    <table id="employeeTable" class="table display">
         <thead>
             <tr>
                 <th scope="col">Employee Id</th>
@@ -17,6 +17,8 @@
                 <th scope="col">Address</th>
                 <th scope="col">Date Of Birth</th>
                 <th scope="col">Social Security Number</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -40,8 +42,10 @@
     <a asp-controller="Employee" asp-action="Add" class="btn btn-primary">Add Employee</a>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $('#table_id').DataTable();
-    });
-</script>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $('#employeeTable').DataTable();
+        });
+    </script>
+}

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SimpleEmployeeApp.Models.DataLayer;
 using SimpleEmployeeApp.Models.DomainModels;
+using SimpleEmployeeApp.Models.DTOs;
 
 namespace SimpleEmployeeApp.Controllers
 {
@@ -22,11 +23,11 @@ namespace SimpleEmployeeApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(Employee employee)
+        public IActionResult Add(EmployeeDTO emp)
         {
             if (ModelState.IsValid)
             {
-                context.Employees.Add(employee);
+                context.Employees.Add(new Employee(emp));
                 context.SaveChanges();
                 return RedirectToAction("Index");
             }

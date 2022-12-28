@@ -1,33 +1,36 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SimpleEmployeeApp.Models.DTOs;
+using System.ComponentModel.DataAnnotations;
+using System.Net;
+using System.Security.Policy;
 
 namespace SimpleEmployeeApp.Models.DomainModels
 {
     public class Employee
     {
         public int Id { get; set; }
-
-        [Required(ErrorMessage = "Please enter First Name.")]
-        [MaxLength(200)]
         public string firstName { get; set; }
-        
-        [Required(ErrorMessage = "Please enter a Middle initial.")]
-        [MaxLength(2)]
         public string middleInitial { get; set; }
-
-        [Required(ErrorMessage = "Please enter Last Name.")]
-        [MaxLength(200)]
         public string lastName { get; set; }
-
-        [Required(ErrorMessage = "Please enter an Address.")]
-        [MaxLength(1000)]
         public string address { get; set; }
-
-        [Required(ErrorMessage = "Please enter a valid date MM-DD-YYYY.")]
-        [MaxLength(200)]
         public DateTime dateOfBirth { get; set; }
-
-        [Required(ErrorMessage = "Please enter a valid SSN 111-22-3333.")]
-        [MaxLength(11)]
         public string socialSecurityNumber { get; set; }
+
+        public Employee() { }
+
+        /*
+         * A DTO is best for dealing with Casting and Security
+         * With a datatype we can prevent possible Data Binding Attacks
+         * and for the DOB we can do Parse so we can get the input string to a DateTime
+         */
+        public Employee(EmployeeDTO dto)
+        {
+            Id = dto.Id;
+            firstName = dto.firstName;
+            middleInitial = dto.middleInitial;
+            lastName = dto.lastName;
+            address = dto.address;
+            dateOfBirth = DateTime.Parse(dto.dateOfBirth);
+            socialSecurityNumber = dto.socialSecurityNumber;
+        }
     }
 }

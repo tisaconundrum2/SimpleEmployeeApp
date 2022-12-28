@@ -25,6 +25,11 @@ namespace SimpleEmployeeApp.Controllers
         [HttpPost]
         public IActionResult Add(EmployeeDTO emp)
         {
+            if (!DateTime.TryParse(emp.dateOfBirth, out DateTime dateOfBirth))
+            {
+                ModelState.AddModelError("dateOfBirth", "Your date of birth is not a valid date, please check your date and try again.");
+            }
+
             if (ModelState.IsValid)
             {
                 context.Employees.Add(new Employee(emp));
@@ -33,7 +38,7 @@ namespace SimpleEmployeeApp.Controllers
             }
             else
             {
-                return RedirectToAction("Index");
+                return View();
             }
         }
     }

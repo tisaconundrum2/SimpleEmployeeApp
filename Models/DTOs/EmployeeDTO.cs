@@ -22,6 +22,18 @@ namespace SimpleEmployeeApp.Models.DTOs
         [MaxLength(1000)]
         public string address { get; set; }
 
+        [Required(ErrorMessage = "Please enter a city")]
+        [MaxLength(200)]
+        public string city { get; set; }
+
+        [Required(ErrorMessage = "Please enter a state")]
+        [MaxLength(200)]
+        public string state { get; set; }
+
+        [Required(ErrorMessage = "Please enter a valid Zip")]
+        [MaxLength(5)]
+        public int zip { get; set; }
+
         [Required(ErrorMessage = "Please enter a valid date MM-DD-YYYY.")]
         [MaxLength(10)]
         public string dateOfBirth { get; set; }

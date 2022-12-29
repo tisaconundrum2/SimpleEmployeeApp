@@ -15,6 +15,9 @@
                 <th scope="col">Middle Initial</th>
                 <th scope="col">Last Name</th>
                 <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">State</th>
+                <th scope="col">Zip</th>
                 <th scope="col">Date Of Birth</th>
                 <th scope="col">Social Security Number</th>
                 <th scope="col"></th>
@@ -30,6 +33,9 @@
                     <td>@emp.middleInitial</td>
                     <td>@emp.lastName</td>
                     <td>@emp.address</td>
+                    <td>@emp.city</td>
+                    <td>@emp.state</td>
+                    <td>@emp.zip</td>
                     <td>@emp.dateOfBirth.ToString("MM-dd-yyyy")</td>
                     <td>@emp.socialSecurityNumber</td>
                     <td><a asp-controller="Employee" asp-action="Edit" asp-route-id="@emp.Id" class="btn btn-success">Edit</a></td>

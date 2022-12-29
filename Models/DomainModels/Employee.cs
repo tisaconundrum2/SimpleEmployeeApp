@@ -15,7 +15,7 @@ namespace SimpleEmployeeApp.Models.DomainModels
         public string address { get; set; }
         public string city { get; set; }
         public string state { get; set; }
-        public int zip { get; set; }
+        public string zip { get; set; }
         public DateTime dateOfBirth { get; set; }
         public string socialSecurityNumber { get; set; }
 

@@ -32,7 +32,7 @@ namespace SimpleEmployeeApp.Models.DTOs
 
         [Required(ErrorMessage = "Please enter a valid Zip")]
         [MaxLength(5)]
-        public int zip { get; set; }
+        public string zip { get; set; }
 
         [Required(ErrorMessage = "Please enter a valid date MM-DD-YYYY.")]
         [MaxLength(10)]

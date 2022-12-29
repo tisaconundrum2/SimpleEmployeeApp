@@ -50,6 +50,7 @@ namespace SimpleEmployeeApp.Models.DomainModels
             emp.lastName = dto.lastName;
             emp.address = dto.address;
             emp.city = dto.city;
+            emp.state = dto.state;
             emp.zip = dto.zip;
             emp.dateOfBirth = DateTime.Parse(dto.dateOfBirth);
             emp.socialSecurityNumber = dto.socialSecurityNumber;
